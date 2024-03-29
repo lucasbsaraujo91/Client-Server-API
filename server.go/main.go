@@ -46,6 +46,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 	insertCotacao(res)
 	returnoJson(w, r, res)
+	log.Println("Request Finalizada")
 
 }
 

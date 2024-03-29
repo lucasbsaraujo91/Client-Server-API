@@ -14,11 +14,6 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-func main() {
-	http.HandleFunc("/cotacao", handler)
-	http.ListenAndServe(":8080", nil)
-}
-
 type Cotacao struct {
 	Usdbrl struct {
 		Code       string `json:"code"`
@@ -33,6 +28,11 @@ type Cotacao struct {
 		Timestamp  string `json:"timestamp"`
 		CreateDate string `json:"create_date"`
 	} `json:"USDBRL"`
+}
+
+func main() {
+	http.HandleFunc("/cotacao", handler)
+	http.ListenAndServe(":8080", nil)
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {

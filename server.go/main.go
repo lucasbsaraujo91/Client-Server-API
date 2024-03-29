@@ -16,7 +16,7 @@ import (
 
 func main() {
 	http.HandleFunc("/cotacao", handler)
-	http.ListenAndServe(":8070", nil)
+	http.ListenAndServe(":8080", nil)
 }
 
 type Cotacao struct {

@@ -51,7 +51,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func requestAPI() (*Cotacao, error) {
 
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Millisecond)
+	ctx, cancel := context.WithTimeout(context.Background(), 200*time.Millisecond)
 	defer cancel()
 
 	var cotacao Cotacao
@@ -105,7 +105,7 @@ func abreConexao() (*sql.DB, error) {
 
 func insertCotacao(cotacao *Cotacao) error {
 
-	ctx, cancel := context.WithTimeout(context.Background(), 0*time.Millisecond)
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Millisecond)
 	defer cancel()
 
 	db, err := abreConexao()

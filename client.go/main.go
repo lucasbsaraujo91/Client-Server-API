@@ -23,7 +23,13 @@ func main() {
 
 	case <-time.After(0 * time.Second):
 
-		req, _ := http.Get("http://localhost:8070/cotacao")
+		req, err := http.Get("http://localhost:8080/cotacao")
+
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Erro ao requisitar dados da api: %v\n", err)
+		}
+
+		defer req.Body.Close()
 
 		res, err := io.ReadAll(req.Body)
 
